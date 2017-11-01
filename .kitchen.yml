@@ -1,0 +1,21 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  hosts: all
+  ansible_verbose: true
+  require_ansible_repo: true
+  require_cheff_for_busser: false
+  playbook: test/role/main.yml
+  requirements_path: test/role/requirements.yml
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      box: ubuntu/trusty64
+
+suites:
+  - name: default
+
