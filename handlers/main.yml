@@ -1,0 +1,11 @@
+---
+# handlers file for sysstat
+
+- name: reload sysstat
+  become: yes
+  become_method: sudo
+  service:
+    name: "{{ sysstat_service_name }}"
+    state: reloaded
+  tags:
+    - sysstat
