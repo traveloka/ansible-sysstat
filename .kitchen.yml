@@ -16,6 +16,9 @@ platforms:
     driver:
       box: ubuntu/trusty64
 
+verifier:
+  name: inspec
+
 suites:
   - name: default
 
