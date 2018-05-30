@@ -1,13 +1,15 @@
 ---
 driver:
   name: vagrant
+  cachier: true
 
 provisioner:
   name: ansible_playbook
   hosts: all
   ansible_verbose: true
-  require_ansible_repo: true
+  require_chef_omnibus: false
   require_cheff_for_busser: false
+  idempotency_test: true
   playbook: test/role/main.yml
   requirements_path: test/role/requirements.yml
 
@@ -15,6 +17,9 @@ platforms:
   - name: ubuntu-14.04
     driver:
       box: ubuntu/trusty64
+  - name: ubuntu-16.04
+    driver:
+      box: ubuntu/xenial64
 
 verifier:
   name: inspec
