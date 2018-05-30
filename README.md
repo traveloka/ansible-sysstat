@@ -1,4 +1,4 @@
-# shared/sysstat #
+# ansible-sysstat #
 
 Ensure sysstat is installed.
 
@@ -19,4 +19,4 @@ None.
 
 - hosts: all
   roles:
-   - role: shared/sysstat
+   - role: ansible-systat
