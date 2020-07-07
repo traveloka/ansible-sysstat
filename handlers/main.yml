@@ -9,3 +9,12 @@
     state: reloaded
   tags:
     - sysstat
+
+- name: reload sysstat systemd
+  become: yes
+  become_method: sudo
+  systemd:
+    name: "{{ sysstat_service_name }}"
+    state: reloaded
+  tags:
+    - sysstat
