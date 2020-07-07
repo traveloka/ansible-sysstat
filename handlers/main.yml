@@ -13,8 +13,6 @@
 - name: reload sysstat systemd
   become: yes
   become_method: sudo
-  systemd:
-    name: "{{ sysstat_service_name }}"
-    state: reloaded
+  command: "systemctl try-reload-or-restart {{ sysstat_service_name }}"
   tags:
     - sysstat
