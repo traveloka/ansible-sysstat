@@ -26,6 +26,14 @@
         name: "{{ sysstat_service_name }}"
         enabled: yes
         state: started
+      when: ansible_distribution_version is version_compare('16.04', '<=')
+
+    - name: ensure sysstat service running and enabled on boot using systemd
+      systemd:
+        name: "{{ sysstat_service_name }}"
+        state: started
+        enabled: yes
+      when: ansible_distribution_version is version_compare('16.04', '>')
 
   become: yes
   become_method: sudo
