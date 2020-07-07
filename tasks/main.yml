@@ -13,7 +13,7 @@
         update_cache: yes
 
     # For Ubuntu Xenial 16.04 and below
-    block:
+    - block:
 
       - name: copy sysstat default configuration
         template:
@@ -30,10 +30,10 @@
           enabled: yes
           state: started
 
-    when: ansible_distribution_version is version_compare('16.04', '<=')
+      when: ansible_distribution_version is version_compare('16.04', '<=')
 
     # For Ubuntu Bionic (18.04) and above
-    block:
+    - block:
 
       - name: copy sysstat default configuration
         template:
@@ -50,7 +50,7 @@
           state: started
           enabled: yes
 
-    when: ansible_distribution_version is version_compare('16.04', '>')
+      when: ansible_distribution_version is version_compare('16.04', '>')
 
   become: yes
   become_method: sudo
